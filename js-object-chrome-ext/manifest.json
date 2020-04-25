@@ -1,0 +1,27 @@
+{
+  "name": "Download JS Object",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Downloads JS Object as JSON file",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "permissions"           : [ "storage", "webRequest", "webRequestBlocking", "http://*/", "https://*/", "tabs" ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "inject.js"
+      ],
+      "run_at"    : "document_end",
+      "all_frames": true
+    }
+  ]
+}
